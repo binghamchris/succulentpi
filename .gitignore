@@ -156,3 +156,6 @@ cython_debug/
 
 # AWS IoT Certificates
 certs
+
+#macOS Files
+.DS_Store
