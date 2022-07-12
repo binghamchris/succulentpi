@@ -11,7 +11,6 @@ from datetime import datetime
 import configparser
 from awscrt import io, mqtt, auth, http
 from awsiot import mqtt_connection_builder
-from uuid import uuid4
 
 # Check if a non-default config file has been specified
 if len(sys.argv) > 1:
@@ -120,7 +119,6 @@ while True:
       data_dict['room']['env']['voc_h2'] = None
       data_dict['room']['env']['voc_ethanol'] = None
       data_dict['room']['env']['pm25'] = None
-
 
     data_json = json.dumps(data_dict, default=str)
     print(data_json)

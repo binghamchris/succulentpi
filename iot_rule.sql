@@ -5,6 +5,7 @@ SELECT
   plant.env.visible_light AS plant_env_visiblelight,
   plant.env.uv_light AS plant_env_uvlight,
   plant.env.ir_light AS plant_env_irlight,
+  plant.images.infrared AS plant_image_infrared,
   room.env.dew_point AS room_env_dewpoint,
   room.env.temp AS room_env_temperature,
   room.env.rel_humid AS room_env_relativehumidity,
@@ -15,4 +16,4 @@ SELECT
   room.env.voc_ethanol AS room_env_vocethanol,
   room.env.pm25 AS room_env_pm25
 FROM
-  'succulentpi/plant1'
+  'succulentpi/readings'

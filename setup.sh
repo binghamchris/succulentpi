@@ -17,8 +17,8 @@ curl -kL dexterindustries.com/update_grovepi | bash
 # Install sunlight sensor packages
 sudo pip3 install seeed-python-si114x
 
-# Setup AWS IoT Device SDK
-sudo apt-get install cmake libssl-dev -y
+# Setup AWS SDKs
+sudo apt-get install python3-boto3 cmake libssl-dev -y
 cd ~
 sudo pip3 install awsiotsdk
 git clone https://github.com/aws/aws-iot-device-sdk-python-v2.git
