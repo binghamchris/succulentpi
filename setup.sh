@@ -17,11 +17,7 @@ curl -kL dexterindustries.com/update_grovepi | bash
 # Install sunlight sensor packages
 sudo pip3 install seeed-python-si114x
 
-# Setup AWS SDKs
+# Install AWS SDKs
 sudo apt-get install python3-boto3 cmake libssl-dev -y
 cd ~
 sudo pip3 install awsiotsdk
-git clone https://github.com/aws/aws-iot-device-sdk-python-v2.git
-
-# Install BrightPi pckages
-#curl -sSL https://pisupp.ly/brightpicode | bash

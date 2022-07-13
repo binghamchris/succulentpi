@@ -32,6 +32,7 @@ logger.debug("Attempting to open configuration ini file")
 config = configparser.RawConfigParser()
 config.read("config.ini")
 
+
 logger.debug("Reading configuration from configuration ini file")
 mqtt_endpoint = config['AWS_IOT_MQTT']['endpoint']
 mqtt_client_id = config['AWS_IOT_MQTT']['client_id']
@@ -43,11 +44,13 @@ aws_access_key = config['AWS_S3_IMAGES']['access_key']
 aws_secret_key = config['AWS_S3_IMAGES']['secret_key']
 s3_upload_path = config['AWS_S3_IMAGES']['s3_upload_path']
 s3_bucket = config['AWS_S3_IMAGES']['s3_bucket_name']
+awair_api_url = config['AWAIR']['local_api_url']
 timestamp = datetime.now().strftime('%Y-%m-%d-%H%M%S')
+
 
 def close_mqtt():
   try:
-    logger.info("Closing MQTT connection")
+    logger.info(f"Closing MQTT connection to {mqtt_endpoint} with client ID {mqtt_client_id}")
     disconnect_future = mqtt_connection.disconnect()
     disconnect_future.result()
   except:
@@ -80,10 +83,10 @@ mqtt_connection = mqtt_connection_builder.mtls_from_path(
 )
 
 try:
-  logger.debug(f"Connecting to MQTT endpoint {mqtt_endpoint} with client ID {mqtt_client_id}")
+  logger.info(f"Connecting to MQTT endpoint {mqtt_endpoint} with client ID {mqtt_client_id}")
   connect_future = mqtt_connection.connect()
   connect_future.result()
-  logger.info(f"Successfully established MQTT connection to {mqtt_endpoint}")
+  logger.info(f"Successfully established MQTT connection to {mqtt_endpoint} with client ID {mqtt_client_id}")
 except:
   logger.error("MQTT connection failed")
   quit()
@@ -131,8 +134,8 @@ except:
 
 
 try:
-  logger.debug("Attempting to aquire data from the Awair API")
-  awair_raw = requests.get(config['AWAIR']['local_api_url'])
+  logger.debug("Attempting to acquire data from the Awair API")
+  awair_raw = requests.get(awair_api_url)
 
   # Check if the Awair Local API returned content
   ## NB: Sometimes it returns HTTP200 with no content
