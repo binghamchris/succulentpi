@@ -1,0 +1,16 @@
+[AWAIR]
+local_api_url = http://{AWAIR_IP}/air-data/latest
+
+[AWS_IOT_MQTT]
+endpoint = {ENDPOINT}.amazonaws.com
+certificate = {PATH_TO_CERTS}/certificate.pem.crt
+private_key = {PATH_TO_CERTS}/private.pem.key
+amazon_root_ca_1 = {PATH_TO_CERTS}/AmazonRootCA1.pem
+topic = {TOPIC_NAME}
+client_id = {CLIENT_ID}
+
+[AWS_S3_IMAGES]
+access_key = {AW_ACCESS_KEY}
+secret_key = {AWS_SECRET_KEY}
+s3_upload_path = {PATH_IN_S3_BUCKET}
+s3_bucket_name = {S3_BUCKET_NAME}
