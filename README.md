@@ -1,0 +1,2 @@
+# SucculentPi Sample Code
+This repository contains sample code to accompany the SucculentPi blog article. The code is intended to provide an easy to follow example of connecting a Raspberry Pi, with GrovePi+ sensors and a Pi Camera, to AWS IoT Core, along with accompanying SQL for an AWS IoT Core Message Routing rule.
